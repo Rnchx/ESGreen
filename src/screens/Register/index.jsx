@@ -2,10 +2,10 @@ import { View } from "react-native";
 
 import styles from "./styles";
 import Title from "../../components/Title";
-import { user } from "../../data/Profile";
 import TouchButton from "../../components/TouchButton";
 
 export default function Register() {
+
   return (
     <View style={styles.container}>
       <Title title="Register" />
@@ -18,7 +18,7 @@ export default function Register() {
 
       <TouchButton route="Feedback" title="Go to Feedback" />
 
-      <TouchButton route="Profile" title="Go to Profile" data={user} />
+      <TouchButton route="Profile" title="Go to Profile" />
 
     </View>
   );

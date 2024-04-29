@@ -1,86 +1,47 @@
-import db from "../../database/index.js";
+import { mockedUsers } from "../components/data/users/data";
+import User from "./User";
 
-export default class UsersRepository {
+class UsersList {
   constructor() {
-    this.db = db;
+    this.users = [];
   }
 
-  async getUsers() {
-    try {
-      const allUsers = await this.db.manyOrNone("SELECT * FROM users");
-      // console.log(allUsers);
-      return allUsers;
-    } catch (error) {
-      console.error("Failed to get users:", error);
-      throw error; // rethrow to let the caller handle it
-    }
+  getAll() {
+    return this.users;
   }
 
-  async getUserById(id) {
-    try {
-      const user = await this.db.oneOrNone(
-        "SELECT * FROM users WHERE id = $1",
-        id
-      );
-      return user;
-    } catch (error) {
-      console.error(`Failed to get user by id ${id}:`, error);
-      throw error; // rethrow to let the caller handle it
-    }
+  get(id) {
+    return this.users.find((user) => user.id == id);
   }
 
-  async getUserByEmail(email) {
-    try {
-      const user = await this.db.oneOrNone(
-        "SELECT * FROM users WHERE email = $1",
-        email
-      );
-      return user;
-    } catch (error) {
-      console.error(`Failed to get user by email ${email}:`, error);
-      throw error; // rethrow to let the caller handle it
-    }
+  add(user) {
+    this.users.push(user);
   }
 
-  async createUser(user) {
-    try {
-      await this.db.none(
-        "INSERT INTO users (id, name, email, password) VALUES ($1, $2, $3, $4)",
-        [user.id, user.name, user.email, user.password]
-      );
-      return user;
-    } catch (error) {
-      console.error("Failed to create user:", error);
-      throw error; // rethrow to let the caller handle it
-    }
+  delete(id) {
+    this.users = this.users.filter((user) => user.id !== id);
   }
 
-  async updateUser(id, name, email, password) {
-    try {
-      const user = await this.getUserById(id);
+  Update(id, email, password, name, cellphone) {
 
-      if (!user) {
-        return null;
-      }
+    const user = this.get(id);
 
-      const updatedUser = await this.db.one(
-        "UPDATE users SET name = $1, email = $2, password = $3 WHERE id = $4 RETURNING *",
-        [name, email, password, id]
-      );
-
-      return updatedUser;
-    } catch (error) {
-      console.error(`Failed to update user ${id}:`, error);
-      throw error; // rethrow to let the caller handle it
+    if (user) {
+      user.id = id;
+      user.email = email;
+      user.password = password;
+      user.name = name;
+      user.cellphone = cellphone;
     }
-  }
 
-  async deleteUser(id) {
-    try {
-      await this.db.none("DELETE FROM users WHERE id = $1", id);
-    } catch (error) {
-      console.error(`Failed to delete user ${id}:`, error);
-      throw error; // rethrow to let the caller handle it
-    }
+    return user;
   }
 }
+
+const usersRepository = new UsersList();
+mockedUsers.map((user) => {
+  const newUser = new User(user.email, user.password, user.name, user.cellphone || 0);
+
+  usersRepository.add(newUser);
+})
+export default usersRepository;
