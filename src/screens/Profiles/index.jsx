@@ -4,16 +4,22 @@ import styles from "./styles";
 import Title from "../../components/Title";
 import TouchButton from "../../components/TouchButton";
 
-export default function Profile({ route }) {
+export default function Profiles({ route }) {
   const { data } = route.params;
 
   return (
     <View style={styles.container}>
-      <Title title="Profile" />
+      <Title title="Profiles" />
 
       <TouchButton route="Home" title="Go to Home" />
 
-      <TouchButton route="Category" title="Go to Category" />
+      <TouchButton route="Register" title="Go to Register" />
+
+      <TouchButton route="Donation" title="Go to Donation" />
+
+      <TouchButton route="Feedback" title="Go to Feedback" />
+
+
 
       <View style={styles.user}>
         <Title title="User" />
