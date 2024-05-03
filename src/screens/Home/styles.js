@@ -3,40 +3,69 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
   },
+
+  image: {
+    flex: 1,
+    width: '100%',
+  },
+
   logo: {
     width: 400,
     height: 400,
-    justifyContent: "center",
-    marginTop: -400,
   },
+
+  containerTitulo: {
+    display: "flex",
+    justifyContent: "center",
+    marginLeft: 28,
+    marginBottom: 20
+  },
+
   titulo: {
     color: 'white',
     fontSize: 25,
     fontWeight: "bold",
-    marginTop: -80,
-    marginLeft: 15,
   },
+
   subtitulo: {
     color: 'white',
     fontSize: 22,
-    marginLeft: 30
   },
-  image: {
-    flex: 1,
-    justifyContent: 'center',
-    width: '100%',
-  },
-  button: {
-    marginTop: 20,
-    marginLeft: 20,
-    marginRight: 20,
+
+  containerInfoEmpresa: {
+    margin: 10,
     padding: 10,
-    backgroundColor: "#C9D4FF",
-    borderRadius: 5,
   },
+
+  texto: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 15,
+  },
+
+  scrollviewArea: {
+    maxHeight: 230
+  },
+
+  containerEsgMensagem: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    margin: 14
+  },
+
+  textoEsg: {
+    fontWeight: "400",
+    color: "white",
+    fontSize: 16
+  },
+
+  textoEsgLetrasMaiuscula: {
+    fontWeight: "800",
+    color: "white",
+    fontSize: 15
+  }
 });
 
 export default styles;

@@ -1,4 +1,4 @@
-import { mockedUsers } from "../components/data/users/data";
+import { mockedUsers } from "../data/users/data";
 import User from "./User";
 
 class UsersList {

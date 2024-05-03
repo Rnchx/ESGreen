@@ -9,7 +9,7 @@ import Feedback from "../screens/Feedback";
 import Register from "../screens/Register";
 import Donation from "../screens/Donation";
 import Users from "../screens/Users";
-import { mockedUsers } from "../components/data/users/data";
+import { mockedUsers } from "../data/users/data"
 
 const Tab = createBottomTabNavigator();
 
