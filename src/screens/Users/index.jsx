@@ -1,34 +1,60 @@
-import { Text, View } from "react-native";
+import { useState, useEffect } from "react";
+import { ImageBackground, Text, TouchableOpacity, View } from "react-native";
+import { useNavigation, useIsFocused } from "@react-navigation/native";
 
 import styles from "./styles";
-import Title from "../../components/Title";
-import TouchButton from "../../components/TouchButton";
+// import Title from "../../components/Title";
 
-export default function Users({ route }) {
-  const { data } = route.params;
+import usersRepository from "../../models/UsersRepository";
+
+export default function Users() {
+  const navigation = useNavigation();
+  const isFocused = useIsFocused();
+  const [allUsers, setAllUsers] = useState([]);
+
+  useEffect(() => {
+    if (isFocused) {
+      const users = usersRepository.getAll();
+      setAllUsers(users);
+    }
+  }, [isFocused]);
 
   return (
     <View style={styles.container}>
-      <Title title="Users" />
-
-      <TouchButton route="Home" title="Go to Home" />
-
-      <TouchButton route="Register" title="Go to Register" />
-
-      <TouchButton route="Donation" title="Go to Donation" />
-
-      <TouchButton route="Feedback" title="Go to Feedback" />
+      <ImageBackground style={styles.image} source={require('../../../assets/wallpaper-register.png')}>
+        <Text style={styles.title1}>Usuários</Text>
+        <View style={styles.titlePage}>
+          <Text style={styles.title}>cadastrados</Text>
+        </View>
 
 
 
-      <View style={styles.user}>
-        <Title title="User" />
-        {/* <Text style={styles.text}>{data.name}</Text> */}
-        {/*<Text style={styles.text}>{data.email}</Text>*/}
-        {/*<Text style={styles.text}>{data.phone}</Text>*/}
-        {/*<Text style={styles.text}>{data.address.city}</Text>*/}
-        {/*<Text style={styles.text}>{data.address.state}</Text>*/}
-      </View>
+        {allUsers.length > 0 ? (
+          <View style={styles.containerUsers}>
+            {allUsers.map((user) => (
+              <View style={styles.containerUserItem}>
+              <View key={user.id} style={styles.userItem}>
+                <View>
+                  <Text style={styles.userName}>{user.password}</Text>
+                </View>
+
+                <View style={styles.userActions}>
+                  <TouchableOpacity
+                    style={styles.detailsButton}
+                    onPress={() => navigation.navigate("User", { data: user })}
+                  >
+                    <Text style={styles.textButton}>Detalhes</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+              </View>
+            ))}
+          </View>
+        ) : (
+          <Text>Não há usuários cadastrados</Text>
+        )}
+
+      </ImageBackground>
     </View>
   );
 }
