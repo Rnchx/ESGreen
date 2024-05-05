@@ -1,4 +1,4 @@
-import { Text, View, TouchableOpacity } from "react-native";
+import { Text, View, TouchableOpacity, ImageBackground } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import styles from "./styles";
@@ -17,16 +17,19 @@ export default function User({ route }) {
         usersRepository.delete(data.id);
         navigation.navigate("Users");
     }
+    
 
     return (
         <View style={styles.container}>
-          <Text style={styles.title}>{data.name}</Text>
-    
+          <ImageBackground style={styles.image} source={require('../../../assets/planta.jpg')}>
+
           {data ? (
-            <Text style={styles.textButton}>Informações do Usuário</Text>
+            <Text style={styles.info}>Informações do Usuário</Text>
           ) : (
             <Text>Selecione um usuário para exibir seus detalhes</Text>
           )}
+
+
     
           <View style={styles.user}>
             <Text style={styles.subtitleDetalhes}>Detalhes</Text>
@@ -44,6 +47,7 @@ export default function User({ route }) {
               </TouchableOpacity>
             </View>
           </View>
+          </ImageBackground>
         </View>
       );
 }

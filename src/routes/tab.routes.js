@@ -9,6 +9,7 @@ import Feedback from "../screens/Feedback";
 import Register from "../screens/Register";
 import Donation from "../screens/Donation";
 import Users from "../screens/Users";
+import User from "../screens/User";
 import { mockedUsers } from "../data/users/data"
 
 const Tab = createBottomTabNavigator();
@@ -49,6 +50,24 @@ export default TabRoutes = () => {
             />
           ),
           tabBarLabel: "Usuários",
+          tabBarActiveTintColor: "#DC143C",
+          tabBarInactiveTintColor: "#202020",
+        }}
+      />
+      
+      <Tab.Screen
+        name="User"
+        component={User}
+        initialParams={{ mockedUsers }}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <FontAwesome5
+              name="file"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          tabBarLabel: "Detalhamento",
           tabBarActiveTintColor: "#DC143C",
           tabBarInactiveTintColor: "#202020",
         }}
@@ -101,7 +120,7 @@ export default TabRoutes = () => {
               color={focused ? "#131313" : "#D6D6D6"}
             />
           ),
-          tabBarLabel: "Doações",
+          tabBarLabel: "Feedback",
 
           tabBarActiveTintColor: "#131313",
           tabBarInactiveTintColor: "#D6D6D6",
