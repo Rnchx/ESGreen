@@ -45,6 +45,7 @@ export default function Users() {
                   >
                     <Text style={styles.textButton}>Detalhes</Text>
                   </TouchableOpacity>
+                  
                 </View>
               </View>
               </View>
