@@ -23,9 +23,6 @@ const styles = StyleSheet.create({
     fontWeight: "800",
     textAlign: "center",
   },
-  containerUsers: {
-    
-  },
   userItem: {
     flexDirection: "row",
     justifyContent: "space-between",

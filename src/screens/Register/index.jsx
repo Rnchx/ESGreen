@@ -1,4 +1,4 @@
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { ImageBackground, View, Text, TextInput, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useState, useEffect } from "react";
 
@@ -60,51 +60,53 @@ export default function Register({ route }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{isUpdate ? "Editar Usuário" : "Cadastrar um novo Usuário"}</Text>
-      <View style={styles.form}>
+      <ImageBackground style={styles.image} source={require('../../../assets/wallpaper-form.png')}>
+        <Text style={styles.title}>{isUpdate ? "Editar Usuário" : "Formulário"}</Text>
+        <View style={styles.form}>
 
-        <TextInput
-          placeholder="e-mail"
-          style={styles.schoolInput}
-          onChangeText={setEmail}
-          value={email}
-        />
+          <TextInput
+            placeholder="e-mail"
+            style={styles.userInput}
+            onChangeText={setEmail}
+            value={email}
+          />
 
-        <TextInput
-          placeholder="senha"
-          style={styles.schoolInput}
-          onChangeText={setPassword}
-          value={password}
-        />
+          <TextInput
+            placeholder="senha"
+            style={styles.userInput}
+            onChangeText={setPassword}
+            value={password}
+          />
 
-        <TextInput
-          placeholder="nome"
-          style={styles.schoolInput}
-          onChangeText={setName}
-          value={name}
-        />
+          <TextInput
+            placeholder="nome"
+            style={styles.userInput}
+            onChangeText={setName}
+            value={name}
+          />
 
-        <TextInput
-          placeholder="telefone"
-          style={styles.schoolInput}
-          onChangeText={setCellphone}
-          value={cellphone}
-          maxLength={15}
-        />
+          <TextInput
+            placeholder="telefone"
+            style={styles.userInput}
+            onChangeText={setCellphone}
+            value={cellphone}
+            maxLength={15}
+          />
 
-        <View style={styles.containerButton}>
-          <TouchableOpacity style={styles.button} onPress={handleUserAction}>
-            <Text style={styles.text}>{isUpdate ? "Salvar Alterações" : "Cadastrar Usuário"}</Text>
-          </TouchableOpacity>
-
-          {isUpdate && (
-            <TouchableOpacity style={styles.buttonCancel} onPress={clearInputs}>
-              <Text style={styles.text}>Cancelar Edição</Text>
+          <View style={styles.containerButton}>
+            <TouchableOpacity style={styles.button} onPress={handleUserAction}>
+              <Text style={styles.text}>{isUpdate ? "Salvar Alterações" : "Cadastrar Usuário"}</Text>
             </TouchableOpacity>
-          )}
-        </View>
 
-      </View>
+            {isUpdate && (
+              <TouchableOpacity style={styles.buttonCancel} onPress={clearInputs}>
+                <Text style={styles.text}>Cancelar Edição</Text>
+              </TouchableOpacity>
+            )}
+          </View>
+
+        </View>
+      </ImageBackground>
     </View>
   );
 }
