@@ -6,12 +6,46 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  button: {
-    marginTop: 20,
-    padding: 10,
-    backgroundColor: "#C9D4FF",
-    borderRadius: 5,
+  image: {
+    flex: 1,
+    width: '100%',
   },
+  texto: {
+    marginTop: 220,
+    textAlign: "center",
+    fontSize: 18,
+    fontWeight: "400",
+    color: "#202020"
+  },
+  input: {
+    backgroundColor: "#FFFF",
+    opacity: 0.8,
+    padding: 22,
+    marginLeft: 45,
+    marginRight: 45,
+    marginTop: 10,
+    borderWidth: 0.8,
+    borderColor: "black"
+  },
+  containerButton: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    marginTop: 40
+  },
+  button: {
+    marginTop: 10,
+    width: 150,
+    padding: 5,
+    backgroundColor: "#2C6D0C",
+    borderRadius: 2,
+  },
+  textButton: {
+    color: "white",
+    textAlign: "center",
+    fontWeight: "bold",
+    fontSize: 17
+  }
 });
 
 export default styles;

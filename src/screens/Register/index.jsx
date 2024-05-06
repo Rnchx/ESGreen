@@ -8,6 +8,7 @@ import styles from "./styles";
 
 import User from "../../models/User";
 import usersRepository from "../../models/UsersRepository";
+// import PopUpMessage from "../../components/PopUpMenssage";
 
 export default function Register({ route }) {
 
@@ -18,6 +19,7 @@ export default function Register({ route }) {
   const [name, setName] = useState("");
   const [cellphone, setCellphone] = useState("");
   const [isUpdate, setIsUpdate] = useState(edit);
+  // const [messagePopUp, setMessagePopUp] = useState(false);
 
   const navigation = useNavigation();
 
@@ -39,6 +41,7 @@ export default function Register({ route }) {
       clearInputs();
       if (email == "" || password == "" || name == "" || cellphone == "") {
         clearInputs();
+        setMessagePopUp(true);
       } else {
         const newUser = new User(email, password, name, cellphone || 0);
         usersRepository.add(newUser);
@@ -62,51 +65,59 @@ export default function Register({ route }) {
     <View style={styles.container}>
       <ImageBackground style={styles.image} source={require('../../../assets/wallpaper-form.png')}>
         <Text style={styles.title}>{isUpdate ? "Editar Usuário" : "Formulário"}</Text>
-        <View style={styles.form}>
+        <View style={styles.containerForm}>
+          <View style={styles.form}>
 
-          <TextInput
-            placeholder="e-mail"
-            style={styles.userInput}
-            onChangeText={setEmail}
-            value={email}
-          />
+            <TextInput
+              placeholder="E-mail"
+              style={styles.userInput}
+              onChangeText={setEmail}
+              value={email}
+            />
 
-          <TextInput
-            placeholder="senha"
-            style={styles.userInput}
-            onChangeText={setPassword}
-            value={password}
-          />
+            <TextInput
+              placeholder="Senha"
+              style={styles.userInput}
+              onChangeText={setPassword}
+              value={password}
+            />
 
-          <TextInput
-            placeholder="nome"
-            style={styles.userInput}
-            onChangeText={setName}
-            value={name}
-          />
+            <TextInput
+              placeholder="Nome"
+              style={styles.userInput}
+              onChangeText={setName}
+              value={name}
+            />
 
-          <TextInput
-            placeholder="telefone"
-            style={styles.userInput}
-            onChangeText={setCellphone}
-            value={cellphone}
-            maxLength={15}
-          />
+            <TextInput
+              placeholder="Telefone"
+              style={styles.userInput}
+              onChangeText={setCellphone}
+              value={cellphone}
+              maxLength={15}
+            />
 
-          <View style={styles.containerButton}>
-            <TouchableOpacity style={styles.button} onPress={handleUserAction}>
-              <Text style={styles.text}>{isUpdate ? "Salvar Alterações" : "Cadastrar Usuário"}</Text>
-            </TouchableOpacity>
+            {
+              <View View style={styles.containerMessageAlert}>
+                <Text style={styles.messageError}>Erro ao tentar cadastrar um novo usuário</Text>
+              </View>
+            }
 
-            {isUpdate && (
-              <TouchableOpacity style={styles.buttonCancel} onPress={clearInputs}>
-                <Text style={styles.text}>Cancelar Edição</Text>
+            <View style={styles.containerButton}>
+              <TouchableOpacity style={styles.button} onPress={handleUserAction}>
+                <Text style={styles.text}>{isUpdate ? "Salvar Alterações" : "Cadastrar"}</Text>
               </TouchableOpacity>
-            )}
-          </View>
 
+              {isUpdate && (
+                <TouchableOpacity style={styles.buttonCancel} onPress={clearInputs}>
+                  <Text style={styles.text}>Cancelar Edição</Text>
+                </TouchableOpacity>
+              )}
+            </View>
+
+          </View>
         </View>
-      </ImageBackground>
-    </View>
+      </ImageBackground >
+    </View >
   );
 }

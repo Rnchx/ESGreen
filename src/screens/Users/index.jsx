@@ -24,7 +24,7 @@ export default function Users() {
       <ImageBackground style={styles.image} source={require('../../../assets/wallpaper-register.png')}>
         <Text style={styles.title1}>Usuários</Text>
         <View style={styles.titlePage}>
-          <Text style={styles.title}>cadastrados</Text>
+          <Text style={styles.title}>Cadastrados</Text>
         </View>
 
 
@@ -33,21 +33,21 @@ export default function Users() {
           <View style={styles.containerUsers}>
             {allUsers.map((user) => (
               <View style={styles.containerUserItem}>
-              <View key={user.id} style={styles.userItem}>
-                <View>
-                  <Text style={styles.userName}>{user.password}</Text>
-                </View>
+                <View key={user.id} style={styles.userItem}>
+                  <View>
+                    <Text style={styles.userName}>{user.name}</Text>
+                  </View>
 
-                <View style={styles.userActions}>
-                  <TouchableOpacity
-                    style={styles.detailsButton}
-                    onPress={() => navigation.navigate("User", { data: user })}
-                  >
-                    <Text style={styles.textButton}>Detalhes</Text>
-                  </TouchableOpacity>
-                  
+                  <View style={styles.userActions}>
+                    <TouchableOpacity
+                      style={styles.detailsButton}
+                      onPress={() => navigation.navigate("User", { data: user })}
+                    >
+                      <Text style={styles.textButton}>Detalhes</Text>
+                    </TouchableOpacity>
+
+                  </View>
                 </View>
-              </View>
               </View>
             ))}
           </View>

@@ -28,11 +28,11 @@ export default TabRoutes = () => {
             <Feather
               name="home"
               size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
+              color={focused ? "#2C6D0C" : "#131313"}
             />
           ),
           tabBarLabel: "Home",
-          tabBarActiveTintColor: "#131313",
+          tabBarActiveTintColor: "#2C6D0C",
           tabBarInactiveTintColor: "#D6D6D6",
         }}
       />
@@ -46,30 +46,32 @@ export default TabRoutes = () => {
             <FontAwesome5
               name="user"
               size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
+              color={focused ? "#2C6D0C" : "#131313"}
             />
           ),
           tabBarLabel: "Usuários",
-          tabBarActiveTintColor: "#DC143C",
-          tabBarInactiveTintColor: "#202020",
+          tabBarActiveTintColor: "#2C6D0C",
+          tabBarInactiveTintColor: "#D6D6D6",
         }}
       />
-      
+
       <Tab.Screen
         name="User"
         component={User}
         initialParams={{ mockedUsers }}
         options={{
+          tabBarItemStyle: { display: "none" },
           tabBarIcon: ({ focused }) => (
             <FontAwesome5
               name="file"
               size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
+              color={focused ? "#2C6D0C" : "#131313"}
+
             />
           ),
           tabBarLabel: "Detalhamento",
-          tabBarActiveTintColor: "#DC143C",
-          tabBarInactiveTintColor: "#202020",
+          tabBarActiveTintColor: "#2C6D0C",
+          tabBarInactiveTintColor: "#D6D6D6",
         }}
       />
 
@@ -82,12 +84,12 @@ export default TabRoutes = () => {
             <Feather
               name="list"
               size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
+              color={focused ? "#2C6D0C" : "#131313"}
             />
           ),
           tabBarLabel: "Cadastro",
-          tabBarActiveTintColor: "#DC143C",
-          tabBarInactiveTintColor: "#202020",
+          tabBarActiveTintColor: "#2C6D0C",
+          tabBarInactiveTintColor: "#D6D6D6",
         }}
       />
 
@@ -99,12 +101,12 @@ export default TabRoutes = () => {
             <FontAwesome6
               name="hand-holding-heart"
               size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
+              color={focused ? "#2C6D0C" : "#131313"}
             />
           ),
           tabBarLabel: "Doações",
 
-          tabBarActiveTintColor: "#131313",
+          tabBarActiveTintColor: "#2C6D0C",
           tabBarInactiveTintColor: "#D6D6D6",
         }}
       />
@@ -117,12 +119,12 @@ export default TabRoutes = () => {
             <MaterialCommunityIcons
               name="email-send"
               size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
+              color={focused ? "#2C6D0C" : "#131313"}
             />
           ),
           tabBarLabel: "Feedback",
 
-          tabBarActiveTintColor: "#131313",
+          tabBarActiveTintColor: "#2C6D0C",
           tabBarInactiveTintColor: "#D6D6D6",
         }}
       />

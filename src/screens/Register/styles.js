@@ -3,7 +3,6 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 50,
   },
   image: {
     flex: 1,
@@ -13,7 +12,11 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "700",
     color: "white",
-    textAlign: "center"
+    textAlign: "center",
+    marginTop: "60%"
+  },
+  containerForm: {
+    marginTop: "5%"
   },
   form: {
     display: "flex",
@@ -28,6 +31,18 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     color: "white",
   },
+  containerMessageAlert: {
+    borderRadius: 2,
+    margin: 10,
+    borderWidth: 0.8,
+    borderColor: "red",
+    padding: 2,
+    backgroundColor: "white",
+    opacity: 0.8
+  },
+  messageError: {
+    color: "#202020"
+  },
   containerButton: {
     display: "flex",
     alignItems: "center",
@@ -35,10 +50,10 @@ const styles = StyleSheet.create({
     marginTop: 15
   },
   button: {
-    padding: 2,
+    padding: 3,
     backgroundColor: "#2C6D0C",
     width: 150,
-    borderRadius: 2,
+    borderRadius: 5,
     margin: 5
   },
   buttonCancel: {
