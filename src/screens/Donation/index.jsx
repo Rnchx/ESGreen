@@ -8,14 +8,25 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 export default function Donation() {
 
-  const [valueDonation, setValueDonation] = useState(0);
+  const [valueDonation, setValueDonation] = useState("");
+  const [cvvDonation, setCvvDonation] = useState("");
+  const [numberCard, setNumberCard] = useState("");
   const [donation, setDonation] = useState(0);
 
+  const clearInputs = () => {
+    setNumberCard("");
+    setCvvDonation("");
+    setValueDonation("");
+  }
+
   function counter() {
-    if (valueDonation = 0) {
-      alert("O valor da doação precisa ser a partir de 1 dólar.")
+    if(cvvDonation === "" || numberCard === "" || valueDonation === "") {
+      alert("Preencha todos os campos.");
+    } else if (valueDonation === "" || valueDonation === "0") {
+      alert("O valor da doação precisa ser a partir de 1 dólar.");
     } else {
       setDonation(donation + 1);
+      clearInputs();
     }
   }
 
@@ -45,6 +56,8 @@ export default function Donation() {
                   <FontAwesome6 name="circle-info" size={24} color="#2C6D0C" />
                   <TextInput
                     placeholder="Número do cartão"
+                    value={numberCard}
+                    onChangeText={setNumberCard}
                     style={styles.donationInput}
                   />
                 </View>
@@ -53,6 +66,8 @@ export default function Donation() {
                   <MaterialIcons name="password" size={24} color="#2C6D0C" />
                   <TextInput
                     placeholder="CVV"
+                    value={cvvDonation}
+                    onChangeText={setCvvDonation}
                     style={styles.donationInput}
                   />
                 </View>
