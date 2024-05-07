@@ -9,14 +9,17 @@ import { MaterialIcons } from '@expo/vector-icons';
 export default function Donation() {
 
   const [donation, setDonation] = useState(0);
-  const [value, setValue] = useState(0);
 
   const handleDonation = () => {
     if (value < 1) {
       alert("Valor mínimo de doação é 1 dólar");
+    } else if (input === "" || input === null) {
+      alert("Insira um valor para doação");
+    } else {
+      setDonation(donation + 1);
     }
-    setDonation(donation + 1);
   };
+
 
   return (
     <View style={styles.container}>
@@ -75,8 +78,8 @@ export default function Donation() {
           </View>
 
           <View style={styles.donation}>
-            <TouchableOpacity onPress={handleDonation}>
-            <Text style={styles.donationText}>Doações registradas</Text>
+            <TouchableOpacity onPress={counter}>
+              <Text style={styles.donationText}>Doações registradas</Text>
             </TouchableOpacity>
 
             <Text style={styles.donationText}>{donation}</Text>
