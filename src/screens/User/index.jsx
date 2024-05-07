@@ -23,6 +23,7 @@ export default function User({ route }) {
         <View style={styles.container}>
           <ImageBackground style={styles.image} source={require('../../../assets/planta.jpg')}>
 
+            <View style={styles.containerInfos}>
           {data ? (
             <Text style={styles.info}>Informações do Usuário</Text>
           ) : (
@@ -46,6 +47,7 @@ export default function User({ route }) {
                 <Text style={styles.textButton}>Excluir</Text>
               </TouchableOpacity>
             </View>
+          </View>
           </View>
           </ImageBackground>
         </View>

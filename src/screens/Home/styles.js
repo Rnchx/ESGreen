@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 
   logo: {
     width: 400,
-    height: 400,
+    height: 350,
   },
 
   containerTitulo: {

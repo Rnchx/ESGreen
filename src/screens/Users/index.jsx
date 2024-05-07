@@ -22,20 +22,21 @@ export default function Users() {
   return (
     <View style={styles.container}>
       <ImageBackground style={styles.image} source={require('../../../assets/wallpaper-register.png')}>
+      <View style={styles.containerNameCompany}>
+        <Text style={styles.nameCompany}>ESG<Text style={styles.nameCompany2}>reen</Text></Text>
+        </View>
         <Text style={styles.title1}>Usuários</Text>
         <View style={styles.titlePage}>
           <Text style={styles.title}>Cadastrados</Text>
         </View>
-
-
-
+        
         {allUsers.length > 0 ? (
-          <View style={styles.containerUsers}>
+          <View style={styles.containerUserItemPai}>
             {allUsers.map((user) => (
               <View style={styles.containerUserItem}>
                 <View key={user.id} style={styles.userItem}>
                   <View>
-                    <Text style={styles.userName}>{user.name}</Text>
+                    <Text style={styles.userName}>{user.password}</Text>
                   </View>
 
                   <View style={styles.userActions}>

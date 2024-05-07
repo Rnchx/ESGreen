@@ -8,12 +8,28 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
   },
+  containerNameCompany: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: "25%"
+  },
+  nameCompany: {
+    color: "#545454",
+    fontSize: 20,
+    fontWeight: "bold"
+  },
+  nameCompany2: {
+    color: "#1CB714",
+    fontSize: 20,
+    fontWeight: "bold"
+  },
   title: {
     fontSize: 25,
     fontWeight: "700",
     color: "white",
     textAlign: "center",
-    marginTop: "60%"
+    marginTop: "35%"
   },
   containerForm: {
     marginTop: "5%"

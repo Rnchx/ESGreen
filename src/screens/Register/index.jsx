@@ -3,15 +3,11 @@ import { useNavigation } from "@react-navigation/native";
 import { useState, useEffect } from "react";
 
 import styles from "./styles";
-// import Title from "../../components/Title";
-// import TouchButton from "../../components/TouchButton";
 
-import User from "../../models/User";
 import usersRepository from "../../models/UsersRepository";
-// import PopUpMessage from "../../components/PopUpMenssage";
+import User from "../../models/User";
 
 export default function Register({ route }) {
-
   let { user, edit } = route.params
 
   const [email, setEmail] = useState("");
@@ -19,7 +15,7 @@ export default function Register({ route }) {
   const [name, setName] = useState("");
   const [cellphone, setCellphone] = useState("");
   const [isUpdate, setIsUpdate] = useState(edit);
-  // const [messagePopUp, setMessagePopUp] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const navigation = useNavigation();
 
@@ -39,17 +35,13 @@ export default function Register({ route }) {
     if (isUpdate) {
       usersRepository.Update(user.id, email, password, name, cellphone || 0);
       clearInputs();
-      if (email == "" || password == "" || name == "" || cellphone == "") {
-        clearInputs();
-        setMessagePopUp(true);
-      } else {
-        const newUser = new User(email, password, name, cellphone || 0);
-        usersRepository.add(newUser);
-        clearInputs();
-      }
+    } else {
+      const newUser = new User(email, password, name, cellphone || 0);
+      usersRepository.add(newUser);
+      clearInputs();
     }
     navigation.navigate("Users");
-  }
+  };
 
   const clearInputs = () => {
 
@@ -64,6 +56,9 @@ export default function Register({ route }) {
   return (
     <View style={styles.container}>
       <ImageBackground style={styles.image} source={require('../../../assets/wallpaper-form.png')}>
+        <View style={styles.containerNameCompany}>
+        <Text style={styles.nameCompany}>ESG<Text style={styles.nameCompany2}>reen</Text></Text>
+        </View>
         <Text style={styles.title}>{isUpdate ? "Editar Usuário" : "Formulário"}</Text>
         <View style={styles.containerForm}>
           <View style={styles.form}>
@@ -97,11 +92,9 @@ export default function Register({ route }) {
               maxLength={15}
             />
 
-            {
-              <View View style={styles.containerMessageAlert}>
-                <Text style={styles.messageError}>Erro ao tentar cadastrar um novo usuário</Text>
-              </View>
-            }
+             <View View style={styles.containerMessageAlert}>
+             {isError && <Text style={styles.messageError}>Erro ao tentar cadastrar um novo usuário</Text>}
+            </View>
 
             <View style={styles.containerButton}>
               <TouchableOpacity style={styles.button} onPress={handleUserAction}>
