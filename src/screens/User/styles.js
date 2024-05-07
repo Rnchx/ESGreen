@@ -9,16 +9,24 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '100%',
     },
+    containerInfos: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+    },
     user: {
         alignItems: "center",
         width: 270,
         height: 243,
-        left: 48,
         marginTop: 100,
         backgroundColor: "#f0f8ff",
         borderRadius: 5,
-        borderColor: "black"
-
+        borderColor: "black",
+        opacity: 0.8
+    },
+    subtitleDetalhes: {
+        fontWeight: "bold",
+        fontSize: 16
     },
     userActions: {
         alignItems: "center",
@@ -29,14 +37,13 @@ const styles = StyleSheet.create({
     },
     text: {
         marginTop: 15,
-        
+
     },
     info: {
         marginTop: 100,
-        left: 100,
+        textAlign: "center",
         color: "white",
         fontWeight: "700",
-        alignItems: "center"
     },
     editButton: {
         padding: 5,
