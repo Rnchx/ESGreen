@@ -8,18 +8,16 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 export default function Donation() {
 
+  const [valueDonation, setValueDonation] = useState(0);
   const [donation, setDonation] = useState(0);
 
-  const counter = () => {
-    if (value < 1) {
-      alert("Valor mínimo de doação é 1 dólar");
-    } else if (input === "" || input === null) {
-      alert("Insira um valor para doação");
+  function counter() {
+    if (valueDonation = 0) {
+      alert("O valor da doação precisa ser a partir de 1 dólar.")
     } else {
       setDonation(donation + 1);
     }
-  };
-
+  }
 
   return (
     <View style={styles.container}>
@@ -63,12 +61,16 @@ export default function Donation() {
                   <MaterialIcons name="attach-money" size={24} color="#2C6D0C" />
                   <TextInput
                     placeholder="Valor da doação"
+                    value={valueDonation}
+                    onChangeText={setValueDonation}
                     style={styles.donationInput}
                   />
                 </View>
 
                 <View style={styles.viewButton}>
-                  <TouchableOpacity style={styles.button}>
+                  <TouchableOpacity
+                    style={styles.button}
+                    onPress={counter}>
                     <Text style={styles.textButton}>Doar</Text>
                   </TouchableOpacity>
                 </View>
@@ -78,15 +80,13 @@ export default function Donation() {
           </View>
 
           <View style={styles.donation}>
-            <TouchableOpacity onPress={counter}>
-              <Text style={styles.donationText}>Doações registradas</Text>
-            </TouchableOpacity>
+            <Text style={styles.donationText}>Doações registradas</Text>
 
             <Text style={styles.donationText}>{donation}</Text>
           </View>
 
         </View>
-      </ImageBackground>
-    </View>
+      </ImageBackground >
+    </View >
   );
 }
