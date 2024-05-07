@@ -10,7 +10,7 @@ export default function Donation() {
 
   const [donation, setDonation] = useState(0);
 
-  const handleDonation = () => {
+  const counter = () => {
     if (value < 1) {
       alert("Valor mínimo de doação é 1 dólar");
     } else if (input === "" || input === null) {
