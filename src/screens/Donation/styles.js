@@ -6,16 +6,51 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  title: {
-    color: "#2C6D0C",
+  container2: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  image: {
+    flex: 1,
+    width: '100%',
+  },
+  text: {
+    marginTop: 270,
+    marginBottom: 20,
+    textAlign: "center",
+    fontSize: 18,
     fontWeight: "bold",
-    fontSize: 20
+    color: "white"
+  },
+  viewButton: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 20,
   },
   button: {
-    marginTop: 20,
-    padding: 10,
-    backgroundColor: "#C9D4FF",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#2C6D0C",
+    width: 150,
+    padding: 5,
     borderRadius: 5,
+  },
+  textButton: {
+    color: "white",
+    textAlign: "center",
+    fontWeight: "bold",
+    fontSize: 17
+  },
+  card: {
+    backgroundColor: 'white',
+    opacity: 0.8,
+    width: 300,
+    height: 300,
+    display: "flex",
+    alignItems: "center"
   },
   viewIcons2: {
     display: "flex",
@@ -28,7 +63,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#323232",
     width: 180,
-    height: 80
+    height: 80,
+    marginTop: 20,
+    marginBottom: 20,
   },
   icons: {
     display: "flex",
@@ -44,12 +81,17 @@ const styles = StyleSheet.create({
   form: {
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
   },
   input: {
     display: "flex",
-    flexDirection: "row"
-  }
+    flexDirection: "row",
+    color: "black",
+    gap: 20,
+    padding: 5,
+  },
+  donationInput: {
+    borderBottomWidth: 1,
+    }
 });
 
 export default styles;
