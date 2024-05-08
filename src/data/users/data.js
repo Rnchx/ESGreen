@@ -9,7 +9,7 @@ export const mockedUsers = [
   {
     "email": "marcelobiellima2@gmail.com",
     "password": "marcelinhodoFrifas",
-    "name": "Marcelo Grabiel Correa Lima",
+    "name": "Marcelo Gabriel Correa Lima",
     "cellphone": "(19) 9 8925-6337"
   },
 

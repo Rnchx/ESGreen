@@ -10,8 +10,24 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
   },
+  containerNameCompany: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: "25%"
+  },
+  nameCompany: {
+    color: "#545454",
+    fontSize: 20,
+    fontWeight: "bold"
+  },
+  nameCompany2: {
+    color: "#1CB714",
+    fontSize: 20,
+    fontWeight: "bold"
+  },
   texto: {
-    marginTop: 220,
+    marginTop: 150,
     textAlign: "center",
     fontSize: 18,
     fontWeight: "400",

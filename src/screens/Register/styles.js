@@ -32,13 +32,21 @@ const styles = StyleSheet.create({
     marginTop: "35%"
   },
   containerForm: {
-    marginTop: "5%"
+    marginTop: "5%",
   },
   form: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center"
+  },
+  formInputIcons: {
+    display: "flex",
+    flexDirection: "row"
+  },
+  containerIcon: {
+    marginTop: 9,
+    margin: 2
   },
   userInput: {
     padding: 8,

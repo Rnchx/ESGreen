@@ -1,6 +1,9 @@
 import { ImageBackground, View, Text, TextInput, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useState, useEffect } from "react";
+import { Entypo } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import styles from "./styles";
 
@@ -15,7 +18,7 @@ export default function Register({ route }) {
   const [name, setName] = useState("");
   const [cellphone, setCellphone] = useState("");
   const [isUpdate, setIsUpdate] = useState(edit);
-  const [isError, setIsError] = useState(false);
+  // const [isError, setIsError] = useState(false);
 
   const navigation = useNavigation();
 
@@ -35,6 +38,8 @@ export default function Register({ route }) {
     if (isUpdate) {
       usersRepository.Update(user.id, email, password, name, cellphone || 0);
       clearInputs();
+    } else if (email == "" || password == "" || name == "" || cellphone == "") {
+      alert("Preencha todos os campos");
     } else {
       const newUser = new User(email, password, name, cellphone || 0);
       usersRepository.add(newUser);
@@ -57,43 +62,60 @@ export default function Register({ route }) {
     <View style={styles.container}>
       <ImageBackground style={styles.image} source={require('../../../assets/wallpaper-form.png')}>
         <View style={styles.containerNameCompany}>
-        <Text style={styles.nameCompany}>ESG<Text style={styles.nameCompany2}>reen</Text></Text>
+          <Text style={styles.nameCompany}>ESG<Text style={styles.nameCompany2}>reen</Text></Text>
         </View>
         <Text style={styles.title}>{isUpdate ? "Editar Usuário" : "Formulário"}</Text>
         <View style={styles.containerForm}>
           <View style={styles.form}>
 
-            <TextInput
-              placeholder="E-mail"
-              style={styles.userInput}
-              onChangeText={setEmail}
-              value={email}
-            />
+            <View style={styles.formInputIcons}>
+              <View style={styles.containerIcon}>
+                <Entypo name="email" size={18} color="white" />
+              </View>
+              <TextInput
+                placeholder="E-mail"
+                style={styles.userInput}
+                onChangeText={setEmail}
+                value={email}
+                selectionColor={"white"}
+              />
+            </View>
 
-            <TextInput
-              placeholder="Senha"
-              style={styles.userInput}
-              onChangeText={setPassword}
-              value={password}
-            />
+            <View style={styles.formInputIcons}>
+              <View style={styles.containerIcon}>
+                <MaterialIcons name="password" size={18} color="white" />
+              </View>
+              <TextInput
+                placeholder="Senha"
+                style={styles.userInput}
+                onChangeText={setPassword}
+                value={password}
+              />
+            </View>
 
-            <TextInput
-              placeholder="Nome"
-              style={styles.userInput}
-              onChangeText={setName}
-              value={name}
-            />
+            <View style={styles.formInputIcons}>
+              <View style={styles.containerIcon}>
+                <MaterialCommunityIcons name="human-child" size={18} color="white" />
+              </View>
+              <TextInput
+                placeholder="Nome"
+                style={styles.userInput}
+                onChangeText={setName}
+                value={name}
+              />
+            </View>
 
-            <TextInput
-              placeholder="Telefone"
-              style={styles.userInput}
-              onChangeText={setCellphone}
-              value={cellphone}
-              maxLength={15}
-            />
-
-             <View View style={styles.containerMessageAlert}>
-             {isError && <Text style={styles.messageError}>Erro ao tentar cadastrar um novo usuário</Text>}
+            <View style={styles.formInputIcons}>
+              <View style={styles.containerIcon}>
+                <MaterialCommunityIcons name="cellphone" size={18} color="white" />
+              </View>
+              <TextInput
+                placeholder="Telefone"
+                style={styles.userInput}
+                onChangeText={setCellphone}
+                value={cellphone}
+                maxLength={15}
+              />
             </View>
 
             <View style={styles.containerButton}>

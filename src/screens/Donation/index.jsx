@@ -20,7 +20,7 @@ export default function Donation() {
   }
 
   function counter() {
-    if(cvvDonation === "" || numberCard === "" || valueDonation === "") {
+    if (cvvDonation === "" || numberCard === "" || valueDonation === "") {
       alert("Preencha todos os campos.");
     } else if (valueDonation === "" || valueDonation === "0") {
       alert("O valor da doação precisa ser a partir de 1 dólar.");
@@ -37,6 +37,9 @@ export default function Donation() {
   return (
     <View style={styles.container}>
       <ImageBackground style={styles.image} source={require('./../../../assets/planta.donation.jpg')}>
+        <View style={styles.containerNameCompany}>
+          <Text style={styles.nameCompany}>ESG<Text style={styles.nameCompany2}>reen</Text></Text>
+        </View>
 
         <View style={styles.container2}>
           <Text style={styles.text}>Faça sua doação a partir de 1 dólar</Text>

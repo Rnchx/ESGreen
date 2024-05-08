@@ -15,8 +15,24 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
   },
+  containerNameCompany: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: "20%"
+  },
+  nameCompany: {
+    color: "#545454",
+    fontSize: 20,
+    fontWeight: "bold"
+  },
+  nameCompany2: {
+    color: "#1CB714",
+    fontSize: 20,
+    fontWeight: "bold"
+  },
   text: {
-    marginTop: 200,
+    marginTop: 100,
     marginBottom: 15,
     textAlign: "center",
     fontSize: 18,
@@ -46,7 +62,7 @@ const styles = StyleSheet.create({
   },
   card: {
     backgroundColor: 'white',
-    opacity: 0.8,
+    opacity: 0.9,
     width: 300,
     height: 350,
     display: "flex",
