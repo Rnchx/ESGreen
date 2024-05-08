@@ -16,8 +16,8 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   text: {
-    marginTop: 270,
-    marginBottom: 20,
+    marginTop: 200,
+    marginBottom: 15,
     textAlign: "center",
     fontSize: 18,
     fontWeight: "bold",
@@ -48,8 +48,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     opacity: 0.8,
     width: 300,
-    height: 300,
+    height: 350,
     display: "flex",
+    justifyContent: "center",
     alignItems: "center"
   },
   viewIcons2: {
@@ -64,7 +65,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#323232",
     width: 180,
     height: 80,
-    marginTop: 20,
     marginBottom: 20,
   },
   icons: {
@@ -76,7 +76,8 @@ const styles = StyleSheet.create({
   },
   textViewIcons: {
     marginTop: 5,
-    color: "white"
+    color: "white",
+    fontWeight: "bold"
   },
   form: {
     display: "flex",
@@ -89,9 +90,27 @@ const styles = StyleSheet.create({
     gap: 20,
     padding: 5,
   },
+  donation: {
+    marginTop: 10
+  },
   donationInput: {
     borderBottomWidth: 1,
-    }
+    width: 200
+  },
+  donationText: {
+    textAlign: "center",
+    fontWeight: "bold",
+    fontSize: 15,
+    color: "white",
+    marginBottom: 5
+  },
+  donationText2: {
+    textAlign: "center",
+    fontWeight: "bold",
+    fontSize: 35,
+    color: "white",
+    marginBottom: 10
+  }
 });
 
 export default styles;

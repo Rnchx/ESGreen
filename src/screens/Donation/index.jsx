@@ -24,6 +24,10 @@ export default function Donation() {
       alert("Preencha todos os campos.");
     } else if (valueDonation === "" || valueDonation === "0") {
       alert("O valor da doação precisa ser a partir de 1 dólar.");
+    } else if (numberCard.length < 13 || numberCard.length > 16) {
+      alert("Insira um número de cartão válido (de 13 a 16 dígitos).")
+    } else if (cvvDonation.length != 3) {
+      alert("Insira um CVV válido (3 dígitos).")
     } else {
       setDonation(donation + 1);
       clearInputs();
@@ -97,7 +101,7 @@ export default function Donation() {
           <View style={styles.donation}>
             <Text style={styles.donationText}>Doações registradas</Text>
 
-            <Text style={styles.donationText}>{donation}</Text>
+            <Text style={styles.donationText2}>{donation}</Text>
           </View>
 
         </View>
